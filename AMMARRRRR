@@ -1,0 +1,117 @@
+import React from 'react';
+import {
+  useCurrentFrame,
+  useVideoConfig,
+  interpolate,
+  Easing,
+  AbsoluteFill,
+} from 'remotion';
+
+// =============================================================================
+// COMPOSITION CONFIG (Required for auto-discovery)
+// =============================================================================
+export const compositionConfig = {
+  id: 'MorningChaos',
+  durationInSeconds: 5,
+  fps: 30,
+  width: 1920,
+  height: 1080,
+};
+
+// =============================================================================
+// PRE-GENERATED DATA (computed once)
+// =============================================================================
+const dialogues = [
+  'لحظة واحدة… لا… هذا مستحيل… اليوم هو عيد ميلاد ريتاج!',
+  'خمس دقائق فقط… حتى الكوارث يمكنها الانتظار.',
+  'خمس دقائق؟! نحن نسينا عيد ميلاد صديقتنا!',
+  'حسنًا… على الأقل لم ننسَ أسماءنا.',
+  'لدينا ثلاث ساعات وسبع وثلاثون دقيقة بالضبط.',
+  'اهدأن جميعًا… ما زال هناك أمل.',
+  'انتهى النقاش. نحتاج إلى التحرك الآن!',
+];
+
+// =============================================================================
+// MAIN COMPONENT
+// =============================================================================
+const MorningChaos: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps, durationInFrames } = useVideoConfig();
+
+  const progress = frame / durationInFrames;
+  const index = Math.min(
+    dialogues.length - 1,
+    Math.floor(progress * dialogues.length)
+  );
+
+  const opacity = interpolate(
+    frame % (fps * 0.7),
+    [0, fps * 0.2, fps * 0.5],
+    [0, 1, 1],
+    {
+      extrapolateLeft: 'clamp',
+      extrapolateRight: 'clamp',
+      easing: Easing.out(Easing.cubic),
+    }
+  );
+
+  const scale = interpolate(
+    frame % (fps * 0.7),
+    [0, fps * 0.5],
+    [0.95, 1],
+    {
+      extrapolateLeft: 'clamp',
+      extrapolateRight: 'clamp',
+      easing: Easing.out(Easing.cubic),
+    }
+  );
+
+  return (
+    <AbsoluteFill
+      style={{
+        background:
+          'linear-gradient(180deg, #2b5876 0%, #4e4376 100%)',
+      }}
+    >
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%) scale(' + scale + ')',
+          width: '80%',
+          textAlign: 'center',
+          opacity,
+        }}
+      >
+        <p
+          style={{
+            margin: 0,
+            fontSize: 84,
+            fontWeight: 800,
+            color: '#f5f5f5',
+            textShadow: '0px 6px 18px rgba(0,0,0,0.4)',
+          }}
+        >
+          {dialogues[index]}
+        </p>
+      </div>
+
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '8%',
+          width: '100%',
+          textAlign: 'center',
+          fontSize: 32,
+          color: '#e0e0e0',
+          opacity: 0.8,
+        }}
+      >
+        مشهد صباحي فوضوي… ضحك، صدمة، وبداية خطة مجنونة
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+export default MorningChaos;
