@@ -17,7 +17,7 @@ A powerful tool to convert TSX/React code into stunning motion graphics videos u
 
 - **YouTube Channel**: [Arabian AI School (مدرسة الذكاء الاصطناعي)](https://www.youtube.com/@ArabianAiSchool?sub_confirmation=1)
 - **Video Tutorial**: [Watch the full tutorial](https://www.youtube.com/@ArabianAiSchool)
-- **download** : https://limewire.com/d/JuNAo#pcXU39P4no
+- **download** : https://drive.google.com/file/d/1E4MSVhywhYq58fYVv9Qr_28PX0LJa-Qf/view?pli=1
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -210,6 +210,7 @@ This project is open source and available under the MIT License.
 ⭐ If you find this tool useful, please give it a star on GitHub and subscribe to the channel!
 
 🔔 Subscribe: https://www.youtube.com/@ArabianAiSchool?sub_confirmation=1
+
 
 
 
