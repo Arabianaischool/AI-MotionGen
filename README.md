@@ -17,6 +17,7 @@ A powerful tool to convert TSX/React code into stunning motion graphics videos u
 
 - **YouTube Channel**: [Arabian AI School (مدرسة الذكاء الاصطناعي)](https://www.youtube.com/@ArabianAiSchool?sub_confirmation=1)
 - **Video Tutorial**: https://www.youtube.com/watch?v=CfVgE0Dawa8
+- [PopcornAI](https://popcornai.art/) - AI video and image generator for branded short clips, launch visuals, and campaign-ready creative assets.
 - **download** : https://drive.google.com/file/d/1E4MSVhywhYq58fYVv9Qr_28PX0LJa-Qf/view?pli=1
 ## 🚀 Quick Start
 
