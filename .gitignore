@@ -1,0 +1,28 @@
+# Portable Node (bundled) - not for source control
+node/
+
+# Dependencies
+node_modules/
+renderer/node_modules/
+
+# Generated user content
+films/
+uploads/
+renders/
+projects/
+tools/models/
+tools/__pycache__/
+*.pyc
+
+# Logs
+logs*.txt
+*.log
+
+# Cache / temp
+.cache/
+.remotion/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

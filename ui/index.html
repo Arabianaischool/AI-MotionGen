@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أداة عمل موشن جرافيكس بالذكاء الاصطناعي | AI Motion Graphics Tool</title>
+    <meta name="description" content="أداة سهلة لتحويل كود TSX إلى فيديو موشن جرافيكس باستخدام الذكاء الاصطناعي">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 4L44 14V34L24 44L4 34V14L24 4Z" stroke="url(#logoGradient)" stroke-width="2"
+                            fill="none" />
+                        <path d="M18 20L22 24L18 28" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M26 28H32" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round" />
+                        <defs>
+                            <linearGradient id="logoGradient" x1="4" y1="4" x2="44" y2="44">
+                                <stop offset="0%" stop-color="#a855f7" />
+                                <stop offset="100%" stop-color="#3b82f6" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <h1>أداة عمل فيديوهات موشن جرافيكس من قناة مدرسة الذكاء الاصطناعي</h1>
+                    <p>AI Motion Graphics Tool from Arabian AI School</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn-icon" id="templateBtn" title="قوالب جاهزة">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <rect x="14" y="14" width="7" height="7" rx="1" />
+                    </svg>
+                </button>
+                <button class="btn-icon" id="helpBtn" title="مساعدة">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                        <circle cx="12" cy="17" r="0.5" fill="currentColor" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mode Tabs -->
+            <div class="mode-tabs">
+                <button class="mode-tab active" data-mode="single">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                    </svg>
+                    فيديو قصير (كود واحد)
+                </button>
+                <button class="mode-tab" data-mode="film">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                        <line x1="12" y1="19" x2="12" y2="23" />
+                    </svg>
+                    فيديو طويل (صوت + مشاهد)
+                </button>
+            </div>
+
+            <div id="singleMode" class="mode-panel">
+            <!-- Code Editor Section -->
+            <section class="editor-section">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        <span>اكتب هنا</span>
+                    </div>
+                    <div class="editor-actions">
+                        <button class="btn-small" id="clearBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2" />
+                            </svg>
+                            مسح
+                        </button>
+                        <button class="btn-small" id="loadFileBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" />
+                            </svg>
+                            تحميل ملف
+                        </button>
+                    </div>
+                </div>
+                <div class="editor-container">
+                    <div class="line-numbers" id="lineNumbers"></div>
+                    <textarea id="codeEditor" placeholder="أدخل هنا..." spellcheck="false"></textarea>
+                </div>
+            </section>
+
+            <!-- Actions Section -->
+            <section class="actions-section">
+                <div class="filename-input">
+                    <label for="filename">اسم الملف:</label>
+                    <input type="text" id="filename" value="MyVideo" placeholder="اسم الملف">
+                    <span class="file-ext">.tsx</span>
+                </div>
+                <button class="btn-generate" id="generateBtn">
+                    <div class="btn-content">
+                        <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                        <span>توليد الفيديو</span>
+                    </div>
+                    <div class="btn-shine"></div>
+                </button>
+            </section>
+            </div><!-- /singleMode -->
+
+            <!-- ================= Long-form mode ================= -->
+            <div id="filmMode" class="mode-panel" style="display: none;">
+                <section class="film-section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                                <line x1="12" y1="19" x2="12" y2="23" />
+                            </svg>
+                            <span>فيديو طويل — تعليق صوتي + مشاهد</span>
+                        </div>
+                        <div class="film-badge" id="filmBadge">لا يوجد مشروع</div>
+                    </div>
+
+                    <div class="film-grid">
+                        <!-- Step 1: narration -->
+                        <div class="film-card">
+                            <h3><span class="step-chip">1</span> التعليق الصوتي</h3>
+
+                            <div class="dropzone" id="audioDrop">
+                                <input type="file" id="audioInput" accept="audio/*,video/*" hidden>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                                    <polyline points="17 8 12 3 7 8" />
+                                    <line x1="12" y1="3" x2="12" y2="15" />
+                                </svg>
+                                <p id="audioDropText">اسحب ملف الصوت هنا أو اضغط للاختيار</p>
+                                <small>WAV / MP3 / M4A / MP4 · يُفضّل WAV</small>
+                            </div>
+                            <div class="audio-meta" id="audioMeta" style="display: none;"></div>
+
+                            <div class="film-fields">
+                                <label>
+                                    <span>اسم المشروع</span>
+                                    <input type="text" id="filmName" value="فيلمي">
+                                </label>
+                                <label>
+                                    <span>الدقة</span>
+                                    <select id="filmSize">
+                                        <option value="1080x1920" selected>1080×1920 (ريلز)</option>
+                                        <option value="1920x1080">1920×1080 (يوتيوب)</option>
+                                        <option value="1080x1080">1080×1080 (مربع)</option>
+                                        <option value="1080x1350">1080×1350</option>
+                                    </select>
+                                </label>
+                                <label>
+                                    <span>FPS</span>
+                                    <select id="filmFps">
+                                        <option value="30" selected>30</option>
+                                        <option value="25">25</option>
+                                        <option value="24">24</option>
+                                        <option value="60">60</option>
+                                    </select>
+                                </label>
+                                <label>
+                                    <span>طول المشهد</span>
+                                    <select id="filmSceneLength">
+                                        <option value="10">قصير ~10 ثوانٍ</option>
+                                        <option value="14" selected>متوسط ~14 ثانية</option>
+                                        <option value="20">طويل ~20 ثانية</option>
+                                    </select>
+                                </label>
+                                <label>
+                                    <span>موديل التفريغ</span>
+                                    <select id="filmModel">
+                                        <option value="tiny">tiny (أسرع)</option>
+                                        <option value="base">base</option>
+                                        <option value="small" selected>small (موصى به)</option>
+                                        <option value="medium">medium (أدق وأبطأ)</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <button class="btn-generate film-generate" id="analyzeBtn">
+                                <div class="btn-content">
+                                    <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                                        <line x1="12" y1="19" x2="12" y2="23" />
+                                    </svg>
+                                    <span>تحليل الصوت وتقسيم المشاهد</span>
+                                </div>
+                                <div class="btn-shine"></div>
+                            </button>
+                            <p class="film-hint">
+                                أول تحليل ينزّل موديل التفريغ (small ≈ 500MB) مرة واحدة. بعدها يعمل بدون إنترنت.
+                            </p>
+                        </div>
+
+                        <!-- Step 2: scenes -->
+                        <div class="film-card">
+                            <h3><span class="step-chip">2</span> المشاهد والأكواد</h3>
+                            <div class="film-summary" id="filmSummary">
+                                لا يوجد مشروع بعد — ابدأ بتحليل الصوت.
+                            </div>
+                            <div class="scene-list" id="sceneList"></div>
+                            <div class="film-actions">
+                                <button class="btn-small" id="refreshFilmsBtn">تحديث</button>
+                                <button class="btn-small" id="openFilmFolderBtn" disabled>فتح المجلد</button>
+                            </div>
+                            <button class="btn-generate film-final" id="renderFilmBtn" disabled>
+                                <div class="btn-content">
+                                    <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polygon points="5 3 19 12 5 21 5 3" />
+                                    </svg>
+                                    <span>رندر الفيلم كامل</span>
+                                </div>
+                                <div class="btn-shine"></div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="film-projects" id="filmProjects" style="display: none;">
+                        <h4>مشاريع سابقة</h4>
+                        <div class="film-projects-list" id="filmProjectsList"></div>
+                    </div>
+                </section>
+            </div><!-- /filmMode -->
+
+            <!-- Progress Section -->
+            <section class="progress-section" id="progressSection" style="display: none;">
+                <div class="progress-header">
+                    <div class="progress-title">
+                        <div class="spinner"></div>
+                        <span id="progressText">جاري التجهيز...</span>
+                    </div>
+                    <span class="progress-percentage" id="progressPercentage">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-log" id="progressLog"></div>
+            </section>
+
+            <!-- Result Section -->
+            <section class="result-section" id="resultSection" style="display: none;">
+                <div class="result-card success" id="successCard" style="display: none;">
+                    <div class="result-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M9 12l2 2 4-4" />
+                        </svg>
+                    </div>
+                    <div class="result-content">
+                        <h3>تم توليد الفيديو بنجاح! 🎉</h3>
+                        <p id="outputPath">المسار: </p>
+                        <button class="btn-secondary" id="openFolderBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z" />
+                            </svg>
+                            فتح المجلد
+                        </button>
+                    </div>
+                </div>
+                <div class="result-card error" id="errorCard" style="display: none;">
+                    <div class="result-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="15" y1="9" x2="9" y2="15" />
+                            <line x1="9" y1="9" x2="15" y2="15" />
+                        </svg>
+                    </div>
+                    <div class="result-content">
+                        <h3>حدث خطأ أثناء التوليد</h3>
+                        <p id="errorMessage"></p>
+                        <details class="error-details-container">
+                            <summary>تفاصيل الخطأ</summary>
+                            <pre id="errorDetails" class="error-details"></pre>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Example Videos Section -->
+            <section class="videos-section">
+                <div class="section-header videos-header">
+                    <div class="section-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="23 7 16 12 23 17 23 7" />
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                        </svg>
+                        <span>أمثلة فيديوهات</span>
+                    </div>
+                </div>
+                <div class="videos-grid">
+                    <div class="video-card" data-video-src="../example/1.mp4">
+                        <img src="https://i.imgur.com/JKWiBtK.jpeg" alt="مثال 1" loading="lazy">
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                        </div>
+                        <div class="video-overlay">
+                            <span class="video-label">مثال 1</span>
+                        </div>
+                    </div>
+                    <div class="video-card" data-video-src="../example/2.mp4">
+                        <img src="https://i.imgur.com/jovsLjf.jpeg" alt="مثال 2">
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                        </div>
+                        <div class="video-overlay">
+                            <span class="video-label">مثال 2</span>
+                        </div>
+                    </div>
+                    <div class="video-card" data-video-src="../example/3.mp4">
+                        <img src="https://i.imgur.com/oiL7LnE.jpeg" alt="مثال 3">
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                        </div>
+                        <div class="video-overlay">
+                            <span class="video-label">مثال 3</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Video Modal -->
+        <div class="modal" id="videoModal">
+            <div class="modal-overlay" id="videoModalOverlay"></div>
+            <div class="modal-content video-modal-content">
+                <button class="btn-close" id="closeVideoModal">&times;</button>
+                <video id="modalVideo" controls autoplay></video>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>تطوير <strong>براء محمد</strong> - <a href="https://www.youtube.com/@ArabianAiSchool?sub_confirmation=1"
+                    target="_blank">قناة مدرسة الذكاء الاصطناعي</a> 🎬</p>
+        </footer>
+    </div>
+
+    <!-- Templates Modal -->
+    <div class="modal" id="templatesModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>قوالب جاهزة</h2>
+                <button class="btn-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="templates-grid" id="templatesGrid">
+                    <!-- Templates will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="modal" id="helpModal">
+        <div class="modal-overlay" id="helpModalOverlay"></div>
+        <div class="modal-content help-modal">
+            <div class="modal-header">
+                <h2>كيفية الاستخدام</h2>
+                <button class="btn-close" id="closeHelpModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="help-content">
+                    <div class="help-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>اكتب هنا</h3>
+                            <p>اكتب أو الصق كود React/Remotion في محرر الكود. تأكد من تصدير
+                                <code>compositionConfig</code> و المكون الرئيسي.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="help-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>حدد اسم الملف</h3>
+                            <p>اختر اسمًا للملف (سيتم حفظه كملف .tsx)</p>
+                        </div>
+                    </div>
+                    <div class="help-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>اضغط "توليد الفيديو"</h3>
+                            <p>سيتم معالجة الكود وتحويله إلى فيديو MP4</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="help-requirements">
+                    <h3>متطلبات الكود</h3>
+                    <pre><code>export const compositionConfig = {
+  id: 'MyVideo',
+  durationInSeconds: 5,
+  fps: 30,
+  width: 1080,
+  height: 1920,
+};
+
+export default MyComponent;</code></pre>
+                </div>
+                <div class="help-requirements">
+                    <h3>الفيديو الطويل (صوت + مشاهد)</h3>
+                    <div class="help-longform">
+                        <p><strong>1.</strong> ارفع التعليق الصوتي ثم اضغط «تحليل الصوت وتقسيم المشاهد».</p>
+                        <p><strong>2.</strong> لكل مشهد: زر «نسخ البرومت» ← الصقه في الشات بوت ← الصق الكود في «تحرير الكود» ← حفظ.</p>
+                        <p><strong>3.</strong> «رندر المشهد» للمراجعة السريعة، ثم «رندر الفيلم كامل» لإخراج الفيديو النهائي مع الصوت.</p>
+                        <p>كل مشهد له ملف <code>scenes/sNN.json</code> فيه توقيتات الكلمات، و<code>prompts/sNN.md</code> فيه البرومت الجاهز.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene Editor Modal -->
+    <div class="modal" id="sceneModal">
+        <div class="modal-overlay" id="sceneModalOverlay"></div>
+        <div class="modal-content scene-modal">
+            <div class="modal-header">
+                <h2 id="sceneModalTitle">مشهد</h2>
+                <button class="btn-close" id="closeSceneModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="scene-modal-bar">
+                    <div class="scene-meta" id="sceneModalMeta"></div>
+                    <div class="scene-modal-actions">
+                        <button class="btn-small" id="copyPromptBtn">نسخ البرومت</button>
+                        <button class="btn-small" id="saveSceneBtn">حفظ الكود</button>
+                        <button class="btn-small" id="stillSceneBtn">صورة معاينة</button>
+                        <button class="btn-small" id="renderSceneBtn">رندر المشهد</button>
+                    </div>
+                </div>
+                <textarea id="sceneCode" class="scene-code" spellcheck="false"
+                    placeholder="الصق هنا كود TSX الذي ولّده الشات بوت لهذا المشهد..."></textarea>
+                <details class="scene-json">
+                    <summary>JSON المشهد (توقيتات الكلمات) — انسخه للشات بوت إن احتجت</summary>
+                    <pre id="sceneJson"></pre>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <input type="file" id="fileInput" accept=".tsx" style="display: none;">
+
+    <script src="app.js"></script>
+    <script src="film.js"></script>
+</body>
+
+</html>
