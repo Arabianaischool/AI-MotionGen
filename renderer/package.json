@@ -1,0 +1,47 @@
+{
+  "name": "remotion-portable-renderer",
+  "version": "1.0.0",
+  "description": "Portable Remotion renderer - render TSX files to MP4",
+  "main": "render-cli.js",
+  "private": true,
+  "scripts": {
+    "render": "node render-cli.js"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.0",
+    "@remotion/cli": "^4.0.0",
+    "@remotion/renderer": "^4.0.0",
+    "@remotion/compositor-win32-x64-msvc": "^4.0.390",
+    "@remotion/media-utils": "^4.0.0",
+    "@remotion/noise": "^4.0.0",
+    "@remotion/paths": "^4.0.0",
+    "@remotion/shapes": "^4.0.0",
+    "@remotion/transitions": "^4.0.0",
+    "@remotion/motion-blur": "^4.0.0",
+    "@remotion/gif": "^4.0.0",
+    "@remotion/lottie": "^4.0.0",
+    "@remotion/preload": "^4.0.0",
+    "@remotion/three": "^4.0.0",
+    "three": "^0.169.0",
+    "@react-three/fiber": "^8.17.10",
+    "@react-three/drei": "^9.117.0",
+    "chalk": "^4.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remotion": "^4.0.0",
+    "typescript": "^5.0.0",
+    "framer-motion": "^11.0.0",
+    "lodash": "^4.17.21",
+    "d3": "^7.9.0",
+    "zod": "^3.23.0"
+  },
+  "optionalDependencies": {
+    "@remotion/compositor-darwin-x64": "^4.0.390",
+    "@remotion/compositor-darwin-arm64": "^4.0.390",
+    "@remotion/compositor-linux-x64-gnu": "^4.0.390",
+    "@remotion/compositor-linux-arm64-gnu": "^4.0.390"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
